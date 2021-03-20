@@ -1,6 +1,7 @@
 import Card, { Category } from './card';
 
 export type Cards = Card[];
+export type CardCount = number;
 
 class CardStack {
     private category: Category;
@@ -20,6 +21,10 @@ class CardStack {
 
     public getStackCategory(): Category {
         return this.category;
+    }
+
+    public getStack(): Cards {
+        return this.cards;
     }
 }
 

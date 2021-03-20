@@ -9,7 +9,7 @@ class Card {
         private category: Category
     ) {}
 
-    private getQuestion(): Question {
+    public getQuestion(): Question {
         return this.question;
     }
 
