@@ -1,6 +1,6 @@
 import Card from "./card";
 import TestEngine from "./testEngine";
-import { createElement } from './util/dom';
+import { createListItem } from './util/dom';
 
 // create new test instance with category of 'JavaScript'
 const test1 = new TestEngine('JavaScript');
@@ -16,8 +16,15 @@ test1.printStack();
 
 const testList = document.getElementById('test-list');
 
-for (let card of test1.getStack()) {
-    const listElement = createElement('li', card.getQuestion());
-    testList?.appendChild(listElement);
+// If stack contains any cards, list them
+if (test1.getStack().length > 0) {
+    for (let card of test1.getStack()) {
+        const listItem = createListItem({
+            question: card.getQuestion(),
+            answer: card.getAnswer(),
+        });
+
+        testList?.appendChild(listItem);
+    }
 }
 
